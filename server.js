@@ -43,6 +43,14 @@ app.get("/", (req, res) => {
 require("./app/routes/auth.routes")(app);
 require("./app/routes/user.routes")(app);
 
+app.get("/login.html", (req, res) => {
+  res.sendFile( __dirname + '/views/login.html');
+});
+
+app.get("/signup.html", (req, res) => {
+  res.sendFile( __dirname + '/views/signup.html');
+});
+
 // set port, listen for requests
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {
