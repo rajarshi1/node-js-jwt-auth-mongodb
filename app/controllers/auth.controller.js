@@ -2,6 +2,7 @@ const config = require("../config/auth.config");
 const db = require("../models");
 const User = db.user;
 const Role = db.role;
+const path = require('path');
 
 var jwt = require("jsonwebtoken");
 var bcrypt = require("bcryptjs");
@@ -55,7 +56,9 @@ exports.signup = (req, res) => {
             return;
           }
 
-          res.send({ message: "User was registered successfully!" });
+          // res.send({ message: "User was registered successfully!" });
+          // res.sendFile( __dirname + '../../views/singnupconfirmation.html');
+          res.sendFile(path.resolve('views/singnupconfirmation.html'));
         });
       });
     }
